@@ -1,0 +1,34 @@
+{
+  "name": "cover-studio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/rotate-dist-bak.mjs --stash",
+    "build": "vue-tsc -b && vite build && npm run 体检闸门",
+    "清理构建备份": "node scripts/rotate-dist-bak.mjs",
+    "收模板备份": "node scripts/save-user-tpl-backup.mjs",
+    "体检闸门": "npx -y tsx scripts/template-audit.mts --exit-on-high",
+    "preview": "vite preview",
+    "体检模板": "npx -y tsx scripts/template-audit.mts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "autoprefixer": "^10.5.4",
+    "modern-screenshot": "^4.7.0",
+    "postcss": "^8.5.26",
+    "vue": "^3.5.41"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "vue-tsc": "^3.3.11"
+  }
+}

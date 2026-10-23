@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cover Studio</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 首屏装载态：主包含 300+ 模板需要一两秒，纯黑屏容易被当成没打开再点一次；Vue 挂载后自动替换 -->
+      <div style="height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#111827;color:#9ca3af;font-family:system-ui,'Segoe UI',sans-serif">
+        <div style="font-size:34px">🎴</div>
+        <div style="font-size:14px;font-weight:600;color:#e5e7eb">Cover Studio 正在装载 300+ 张封面模板…</div>
+        <div style="font-size:12px">第一次显示稍慢，之后走浏览器缓存会快很多</div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
