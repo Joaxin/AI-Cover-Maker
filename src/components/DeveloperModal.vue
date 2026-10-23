@@ -478,8 +478,16 @@ async function loadPrompt() {
   promptLoading.value = true
   promptError.value = ''
   try {
-    const mod = await import('../../image-to-json/skills/image-to-JSON-skills.md?raw')
-    promptText.value = mod.default
+    // 用 import.meta.glob 在 dev server 启动时即登记该模块，避免「规范文件晚于 dev server 启动、
+    // 首请求命中失效缓存」导致的 Failed to fetch dynamically imported module。
+    const mods = import.meta.glob('../../image-to-json/skills/image-to-JSON-skills.md', {
+      query: '?raw',
+      import: 'default',
+      eager: false,
+    })
+    const loader = Object.values(mods)[0]
+    if (!loader) throw new Error('未找到 image-to-JSON 规范文件（image-to-json/skills/image-to-JSON-skills.md）')
+    promptText.value = await loader()
   } catch (err: any) {
     promptError.value = err?.message || String(err)
   } finally {

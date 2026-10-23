@@ -10,11 +10,9 @@ dist-ssr/
 # ===== AI Agent 工作区（记忆 / 扫描报告 / 批处理工具，非项目资产）=====
 .workbuddy/
 
-# ===== 项目文档 + 模板备份出口（2026-10-23 按指示移出版本控制）=====
-# 提醒：backups/ 原是 localStorage 模板的仓库级备份出口（npm run 收模板备份）；
-# docs/ 原含 验收/待点验清单.md。二者现已不入库。
-# 要恢复：删掉下面两行，再 git add backups docs。
-backups/
+# ===== 项目文档（docs/ 不入库；backups/ 已重新纳入版本控制）=====
+# docs/ 自 2026-10-23 起不入库（原含 验收/待点验清单.md）。
+# backups/ 同日撤回忽略、重新入库：它是 localStorage 模板的仓库级备份出口（npm run 收模板备份）。
 docs/
 
 # ===== 日志 =====
